@@ -178,3 +178,9 @@ body {
 input.ng-invalid.ng-touched{
   border:  2px solid red;
 }
+
+small{
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
+}
