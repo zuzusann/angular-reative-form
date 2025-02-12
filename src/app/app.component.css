@@ -1,0 +1,179 @@
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  padding: 20px;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+
+.container header {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.input-box {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.input-box label {
+  color: #333;
+  font-weight: 500;
+}
+
+.input-box input,
+.select-box select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #707070;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+  margin-top: 8px;
+}
+
+.input-box input:focus,
+.select-box select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.column {
+  display: flex;
+  column-gap: 15px;
+}
+
+.column .input-box {
+  flex: 1;
+}
+
+.gender-box {
+  margin-top: 20px;
+}
+
+.gender-box h3 {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.gender-option {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+  flex-wrap: wrap;
+}
+
+.gender {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.gender input {
+  accent-color: #007bff;
+  cursor: pointer;
+}
+
+.gender label {
+  color: #707070;
+  cursor: pointer;
+}
+
+.skills,
+.experience {
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fafafa;
+  margin-top: 20px;
+}
+
+.address input,
+.address .select-box,
+.experience input,
+.experience .select-box {
+  margin-bottom: 15px;
+}
+
+.btn-gen-username, .btn-add-skill, .btn-add-exp{
+  margin-top: 12px;
+}
+
+.btn-gen-username,
+.btn-add-delete,
+.submit-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-gen-username:hover,
+.btn-add-delete:hover,
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .column {
+    flex-direction: column;
+  }
+
+  .gender-option {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 15px;
+  }
+
+  .input-box input,
+  .select-box select {
+    font-size: 0.9rem;
+  }
+
+  .btn-gen-username,
+  .btn-add-delete,
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+
+
