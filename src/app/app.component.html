@@ -56,9 +56,12 @@
         </div>
       </div>
   
-      <div class="input-box address">
+      <div class="input-box address" formGroupName="address">
         <label>Address</label>
         <input type="text" placeholder="Street address" formControlName="street"/>
+        <small *ngIf="reativeForm.get('address.street').invalid && reativeForm.get('address.street').touched">
+          *Street is a required Field
+        </small>
         <div class="column">
           <div class="select-box">
             <select name="country" formControlName="country">
@@ -68,12 +71,18 @@
               <option>India</option>
               <option>Nepal</option>
             </select>
+            <small *ngIf="reativeForm.get('address.country').invalid && reativeForm.get('address.country').touched">
+              *Country is a required Field
+           </small>
           </div>
           <input type="text" placeholder="City" formControlName="city"/>
         </div>
         <div class="column">
           <input type="text" placeholder="Region" formControlName="region"/>
           <input type="number" placeholder="Postal code" formControlName="postal"/>
+          <small *ngIf="reativeForm.get('address.postal').invalid && reativeForm.get('address.postal').touched">
+            *Postal is a required Field
+          </small>
         </div>
       </div>
   
