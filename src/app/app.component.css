@@ -132,6 +132,8 @@ body {
   transition: background 0.3s;
 }
 
+
+
 .btn-gen-username:hover,
 .btn-add-delete:hover,
 .submit-btn:hover {
@@ -143,6 +145,10 @@ body {
   margin-top: 20px;
   font-size: 1.1rem;
   font-weight: bold;
+}
+
+.skills .column{
+  margin-bottom: 7px;
 }
 
 /* Responsive Styles */
