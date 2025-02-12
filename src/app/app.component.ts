@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +26,11 @@ export class AppComponent implements OnInit{
           region: new FormControl(null),
           postal: new FormControl(null, Validators.required)
         }),
+        skills: new FormArray([
+          new FormControl(null, Validators.required),
+          new FormControl(null, Validators.required),
+          new FormControl(null, Validators.required),
+        ])
       });
   }
   
