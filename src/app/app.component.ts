@@ -41,7 +41,7 @@ export class AppComponent implements OnInit{
   }
 
   DeleteSkill(index: number){
-    const controls = <FormArray> this.reativeForm.get('skills');
+    const controls = (<FormArray> this.reativeForm.get('skills'));
     controls.removeAt(index);
   }
 
