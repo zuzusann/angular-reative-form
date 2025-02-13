@@ -10,6 +10,7 @@ import { CustomValidators } from './validators/noSpaceAllowed.validator';
 })
 export class AppComponent implements OnInit{
   title = 'angular-reative-form';
+  formStatus: string = '';
 
   reativeForm: FormGroup;
 
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit{
         firstname: new FormControl(null, [Validators.required, CustomValidators.noSpaceAllowed]),
         lastname: new FormControl(null, [Validators.required, CustomValidators.noSpaceAllowed]),
         email: new FormControl(null, [Validators.required, Validators.email]),
-        username: new FormControl(null),
+        username: new FormControl(null, Validators.required, CustomValidators.checkUserName),
         dob: new FormControl(null),
         gender: new FormControl('male'),
         address: new FormGroup({
@@ -41,6 +42,25 @@ export class AppComponent implements OnInit{
           // })
         ])
       });
+
+
+      // this.reativeForm.get('firstname').valueChanges.subscribe((value) => {
+      //     console.log(value);
+      // })
+
+      // this.reativeForm.valueChanges.subscribe((data) => {
+      //   console.log(data);  
+      // })
+
+      // this.reativeForm.get('email').statusChanges.subscribe((status) => {
+      //   console.log(status);
+      // })
+
+      this.reativeForm.statusChanges.subscribe((status) => {
+        console.log(status);
+        this.formStatus = status;
+      })
+
   }
   
   OnFormSubmitted(){

@@ -196,6 +196,23 @@ input.ng-invalid.ng-touched{
   border:  2px solid red;
 }
 
+input.ng-pending{
+  border:  2px solid yellow;
+}
+
+.container.VALID{
+  border:  2px solid green;
+}
+
+.container.INVALID{
+  border:  2px solid red;
+}
+
+
+.container.PENDING{
+  border:  2px solid orange;
+}
+
 small{
   color: red;
   font-weight: bold;

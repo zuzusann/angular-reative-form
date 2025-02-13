@@ -1,4 +1,4 @@
-import { FormControl } from "@angular/forms";
+import { AbstractControl, FormControl } from "@angular/forms";
 
 export class CustomValidators{
     static noSpaceAllowed(control: FormControl){
@@ -7,4 +7,22 @@ export class CustomValidators{
         }
         return null;
     }
+
+    static checkUserName(control: AbstractControl): Promise<any>{
+       return userNameAllowed(control.value);
+    }
+}
+
+function userNameAllowed(username: string){
+    const takenUserNames = ['johnSmith', 'zuzu', 'kaungkaung']
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(takenUserNames.includes(username)){
+                resolve({checkUsername: true});
+            }else{
+                resolve(null);
+            }
+        }, 5000)
+    })
 }
