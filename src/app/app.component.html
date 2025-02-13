@@ -39,11 +39,10 @@
           <small *ngIf="reativeForm.get('username').errors?.['checkUserName']">
             *Username is already Exit
           </small>
-         
-        
-          <!-- <button class="btn-gen-username" type="button">
+          <button class="btn-gen-username" type="button" (click)="GenerateUsename()"
+          [disabled]="!(reativeForm.get('firstname').value && reativeForm.get('lastname').value) && reativeForm.get('dob').value">
             Create a Username
-          </button> -->
+          </button>
         </div>
         <div class="input-box">
           <input type="date" placeholder="Date of Birth" formControlName="dob"/>
@@ -144,30 +143,30 @@
     </form>
   </section>
   
-  <!--uncomment below HTML for displaying form data-->
+
   
-  <!-- <section class="user-detail-container">
+  <section class="user-detail-container">
     <div class="user-details-container">
-      <div class="user-avatar">
+      <!-- <div class="user-avatar">
         <p>JS</p>
-      </div>
+      </div> -->
       <div class="user-details">
         <div class="user-name">
-          <h2>John Smith</h2>
+          <h2>{{formData.firstname}} {{formData.lastname}}</h2>
         </div>
-        <p><b>Email:</b> johnsmith@gmail.com</p>
-        <p><b>Username:</b> johnsmith86 </p>
-        <p><b>Date of birth:</b> July 21, 1989</p>
+        <p><b>Email:</b> {{formData.email}}</p>
+        <p><b>Username:</b> {{formData.username}} </p>
+        <p><b>Date of birth:</b> {{formData.dob}}</p>
         <div class="user-name">
           <h3>Address</h3>
         </div>
-        <span>India</span>.
-        <span> New Delhi</span>.
-        <span> NCR</span>.
-        <span> 234565</span>
+        <span> {{formData.address?.country}} </span>.
+        <span> {{formData.address?.city}} </span>.
+        <span> {{formData.address?.region}} </span>.
+        <span> {{formData.address?.postal}} </span>.
       </div>
     </div>
-  </section> -->
+  </section>
 
 
 

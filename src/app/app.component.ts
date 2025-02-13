@@ -11,6 +11,7 @@ import { CustomValidators } from './validators/noSpaceAllowed.validator';
 export class AppComponent implements OnInit{
   title = 'angular-reative-form';
   formStatus: string = '';
+  formData: any = {};
 
   reativeForm: FormGroup;
 
@@ -64,7 +65,7 @@ export class AppComponent implements OnInit{
   }
   
   OnFormSubmitted(){
-    console.log(this.reativeForm);
+    this.formData = this.reativeForm.value;
   }
 
   AddSkills(){
@@ -92,4 +93,55 @@ export class AppComponent implements OnInit{
     formArray.removeAt(index);
   }
 
+
+
+  GenerateUsename(){
+    let username = '';
+
+    const fName: string = this.reativeForm.get('firstname').value;
+    const lName: string = this.reativeForm.get('lastname').value;
+    const dob: string = this.reativeForm.get('dob').value;
+
+    if(fName.length >=3){
+      username += fName.slice(0,3);
+    }else{
+      username += fName;
+    }
+
+    if(lName.length >=3){
+      username += lName.slice(0,3);
+    }else{
+      username += lName;
+    }
+
+    let datetime = new Date(dob);
+    username += datetime.getFullYear();
+
+    username = username.toLowerCase();
+
+    this.reativeForm.setValue({
+        firstname: this.reativeForm.get('firstname').value,
+        lastname: this.reativeForm.get('lastname').value,
+        email: this.reativeForm.get('email').value,
+        username: username,
+        dob: this.reativeForm.get('dob').value,
+        gender: this.reativeForm.get('gender').value,
+        address: {
+          street: this.reativeForm.get('address.street').value,
+          country: this.reativeForm.get('address.country').value,
+          city: this.reativeForm.get('address.city').value,
+          region: this.reativeForm.get('address.region').value,
+          postal: this.reativeForm.get('address.postal').value
+        },
+        skills: this.reativeForm.get('skills').value,
+        experience: this.reativeForm.get('experience').value
+    });
+
+    // this.reativeForm.get('username').setValue(username);
+
+    this.reativeForm.patchValue({
+      username: username
+    });
+
+  }
 }
