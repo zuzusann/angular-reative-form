@@ -5,14 +5,20 @@
       <div class="column">
         <div class="input-box">
           <input type="text" placeholder="First Name" formControlName="firstname"/>
-          <small *ngIf="reativeForm.get('firstname').invalid && reativeForm.get('firstname').touched">
+          <small *ngIf="reativeForm.get('firstname').errors?.['required'] && reativeForm.get('firstname').touched">
             *First Name is a required Field
+          </small>
+          <small *ngIf="reativeForm.get('firstname').errors?.['noSpaceAllowed'] && reativeForm.get('firstname').touched">
+            *NO Space is allowed for First Name
           </small>
         </div>
         <div class="input-box">
           <input type="text" placeholder="Last Name" formControlName="lastname"/>
-          <small *ngIf="reativeForm.get('lastname').invalid && reativeForm.get('lastname').touched">
+          <small *ngIf="reativeForm.get('lastname').errors?.['required'] && reativeForm.get('lastname').touched">
             *Last Name is a required Field
+          </small>
+          <small *ngIf="reativeForm.get('lastname').errors?.['noSpaceAllowed'] && reativeForm.get('lastname').touched">
+            **NO Space is allowed for First Name
           </small>
         </div>
       </div>    
@@ -125,7 +131,7 @@
       </div>
       <button type="button" class="btn-add-delete btn-add-exp" (click)="AddExperience()">Add Experience</button> 
   
-      <input type="submit" value="Submit" class="submit-btn" [disabled]="!reativeForm.valid"> 
+      <input type="submit" value="Submit" class="submit-btn"> 
       <!-- [disabled]="!reactiveForm.valid" -->
     </form>
   </section>
