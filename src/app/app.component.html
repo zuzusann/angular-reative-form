@@ -49,6 +49,28 @@
         </div>
       </div>
   
+      <!-- CheckBox -->
+      <div class= "interests" formGroupName="interests">
+        <h3>Select Interests</h3>
+        <div class="checkbox-group">
+            <div class="gender">
+                <input type="checkbox" formControlName="sports" />
+                <label for="check-male">Sports</label>
+            </div>
+            <div class="gender">
+              <input type="checkbox" formControlName="music" />
+              <label for="check-male">Music</label>
+          </div>
+          <div class="gender">
+            <input type="checkbox" formControlName="travel" />
+            <label for="check-male">Travel</label>
+        </div>
+        <div class="gender">
+          <input type="checkbox" formControlName="technology" />
+          <label for="check-male">Technology</label>
+      </div>
+        </div>
+    </div>
       
   
       <div class="gender-box">
@@ -137,8 +159,14 @@
         </div> 
       </div>
       <button type="button" class="btn-add-delete btn-add-exp" (click)="AddExperience()">Add Experience</button> 
+
+
+      <div class="column">
+        <input type="checkbox" name="agreement" formControlName="terms">
+        <label for="agreement">I agree to terms & conditions</label>
+      </div>
   
-      <input type="submit" value="Submit" class="submit-btn"> 
+      <input type="submit" value="Submit" class="submit-btn" [disabled]="!reativeForm.valid"> 
       <!-- [disabled]="!reactiveForm.valid" -->
     </form>
   </section>

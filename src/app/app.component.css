@@ -77,6 +77,8 @@ body {
   margin-bottom: 8px;
 }
 
+
+
 .gender-option {
   display: flex;
   align-items: center;
@@ -222,3 +224,19 @@ small{
 .user-details{
   color: white;
 }
+
+.checkbox-group{
+  display: flex;
+  justify-content: space-between;
+}
+
+.interests{
+  margin-top: 15px;
+}
+
+.interests h3 {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}   

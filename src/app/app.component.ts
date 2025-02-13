@@ -23,6 +23,12 @@ export class AppComponent implements OnInit{
         username: new FormControl(null, Validators.required, CustomValidators.checkUserName),
         dob: new FormControl(null),
         gender: new FormControl('male'),
+        interests: new FormGroup({
+          sports: new FormControl(false),
+          music: new FormControl(false),
+          travel: new FormControl(false),
+          technology: new FormControl(false)
+        }),
         address: new FormGroup({
           street: new FormControl(null, Validators.required),
           country: new FormControl('Japan', Validators.required),
@@ -34,14 +40,8 @@ export class AppComponent implements OnInit{
           new FormControl(null, Validators.required)
         ]),
         experience: new FormArray([
-          // new FormGroup({
-          //   company: new FormControl(null),
-          //   position: new FormControl(null),
-          //   totalexp: new FormControl(null),
-          //   start: new FormControl(null),
-          //   end: new FormControl(null)
-          // })
-        ])
+        ]),
+        terms: new FormControl(false, Validators.required )
       });
 
 
@@ -66,6 +66,7 @@ export class AppComponent implements OnInit{
   
   OnFormSubmitted(){
     this.formData = this.reativeForm.value;
+    console.log(this.reativeForm.value);
   }
 
   AddSkills(){
@@ -125,6 +126,12 @@ export class AppComponent implements OnInit{
         email: this.reativeForm.get('email').value,
         username: username,
         dob: this.reativeForm.get('dob').value,
+        interests: {
+          sports: this.reativeForm.get('interests.sports').value,
+          music: this.reativeForm.get('interests.music').value,
+          travel: this.reativeForm.get('interests.travel').value,
+          technology: this.reativeForm.get('interests.technology').value
+        },
         gender: this.reativeForm.get('gender').value,
         address: {
           street: this.reativeForm.get('address.street').value,
