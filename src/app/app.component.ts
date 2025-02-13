@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { start } from 'repl';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,15 @@ export class AppComponent implements OnInit{
         }),
         skills: new FormArray([
           new FormControl(null, Validators.required)
+        ]),
+        experience: new FormArray([
+          // new FormGroup({
+          //   company: new FormControl(null),
+          //   position: new FormControl(null),
+          //   totalexp: new FormControl(null),
+          //   start: new FormControl(null),
+          //   end: new FormControl(null)
+          // })
         ])
       });
   }
@@ -43,6 +53,22 @@ export class AppComponent implements OnInit{
   DeleteSkill(index: number){
     const controls = (<FormArray> this.reativeForm.get('skills'));
     controls.removeAt(index);
+  }
+
+  AddExperience(){
+    const fromGroup =  new FormGroup({
+      company: new FormControl(null),
+      position: new FormControl(null),
+      totalexp: new FormControl(null),
+      start: new FormControl(null),
+      end: new FormControl(null)
+    });
+   (<FormArray> this.reativeForm.get('experience')).push(fromGroup);
+  }
+
+  DeleteExperience(index: number){
+    const formArray = <FormArray> this.reativeForm.get('experience')
+    formArray.removeAt(index);
   }
 
 }

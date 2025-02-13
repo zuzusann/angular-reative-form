@@ -98,30 +98,32 @@
       <button type="button" class="btn-add-delete btn-add-skill" (click)="AddSkills()">Add Skills</button>
   
       <!--HTML for Experience Form Array -->
-      <!-- <div class="input-box">
-        <div class="experience">
-          <label>Experience</label>
-          <input type="text" placeholder="Company Name" />
-          <div class="column">
-            <div class="select-box">
-              <select>
-                <option hidden>Position</option>
-                <option>Junior Developer</option>
-                <option>Software Developer</option>
-                <option>Senior Developer</option>
-                <option>Team Lead</option>
-              </select>
+      <div class="input-box experience" formArrayName="experience">
+        <div class="experiebc" *ngFor="let exp of reativeForm.get('experience')['controls']; let i = index" [formGroupName]="i">
+          <div class="experiences">
+            <label>Experience {{i}}</label>
+            <input type="text" placeholder="Company Name" formControlName="company"/>
+            <div class="column">
+              <div class="select-box">
+                <select formControlName="position">
+                  <option hidden>Position</option>
+                  <option>Junior Developer</option>
+                  <option>Software Developer</option>
+                  <option>Senior Developer</option>
+                  <option>Team Lead</option>
+                </select>
+              </div>
+              <input type="number" placeholder="Experience" formControlName="totalexp"/>
             </div>
-            <input type="number" placeholder="Experience" />
+            <div class="column">
+              <input type="date" placeholder="Start Date" formControlName="start"/>
+              <input type="date" placeholder="End Date" formControlName="end"/>
+            </div>
+            <button type="button" class="btn-add-delete btn-add-exp" (click)="DeleteExperience(i)">Delete Experience</button>
           </div>
-          <div class="column">
-            <input type="date" placeholder="Start Date" />
-            <input type="date" placeholder="End Date" />
-          </div>
-          <button type="button" class="btn-add-delete btn-add-exp">Delete Experience</button>
-        </div>
+        </div> 
       </div>
-      <button type="button" class="btn-add-delete btn-add-exp">Add Experience</button> -->
+      <button type="button" class="btn-add-delete btn-add-exp" (click)="AddExperience()">Add Experience</button> 
   
       <input type="submit" value="Submit" class="submit-btn" [disabled]="!reativeForm.valid"> 
       <!-- [disabled]="!reactiveForm.valid" -->
@@ -152,3 +154,16 @@
       </div>
     </div>
   </section> -->
+
+
+
+
+
+
+
+
+
+
+
+
+

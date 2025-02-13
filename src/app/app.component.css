@@ -42,7 +42,7 @@ body {
 .select-box select {
   width: 100%;
   padding: 12px;
-  /* border: 1px solid #ccc; */
+  border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
   color: #707070;
@@ -109,12 +109,23 @@ body {
   margin-top: 20px;
 }
 
+.experiences{
+  margin-bottom: 40px;
+}
+
+.experiences label, .address label{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
 .address input,
 .address .select-box,
 .experience input,
 .experience .select-box {
   margin-bottom: 15px;
 }
+
 
 .btn-gen-username, .btn-add-skill, .btn-add-exp{
   margin-top: 12px;
